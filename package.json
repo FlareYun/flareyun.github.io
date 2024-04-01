@@ -1,0 +1,23 @@
+{
+  "name": "flareyun",
+  "version": "1.0.0",
+  "description": "<!--\r **FlareYun/flareyun** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlareYun/flareyun.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FlareYun/flareyun/issues"
+  },
+  "homepage": "https://github.com/FlareYun/flareyun#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
