@@ -20,7 +20,7 @@ app.get('*', (req, res) => {
             return;
         }
 
-        const stat = fs.statSync(path)
+        const stat = fs.statSync(filePath)
         const fileSize = stat.size
 
         // Set the appropriate content type for an mp4 file
