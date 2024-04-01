@@ -9,6 +9,8 @@ app.get('*', (req, res) => {
     
     // Check if the file exists
 
+    console.log("Requested")
+
     filePath = "noop-1s.mp4"
 
     fs.access(filePath, fs.constants.F_OK, (err) => {
