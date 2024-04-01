@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Server</title>
+</head>
+<body>
+    <script>
+        // Serve the desired file when index.html is accessed
+        // Example: Return contents of 'example.txt' file
+        fetch('noop-1s.mp4')
+            .then(response => response.text())
+            .then(data => {
+                // Once file contents are fetched, display them in the browser
+                document.body.innerText = data;
+            })
+            .catch(error => {
+                // Handle errors, such as file not found
+                console.error('Error fetching file:', error);
+                document.body.innerText = 'File not found';
+            });
+    </script>
+</body>
+</html>
