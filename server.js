@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
     
     // Check if the file exists
 
