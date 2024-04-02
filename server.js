@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-const path = require('path');
+const httpProxy = require('http-proxy');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,6 +19,8 @@ app.all('*', (req, res) => {
             res.status(404).send('File not found');
             return;
         }
+
+        console.log('abc')
 
         const stat = fs.statSync(filePath)
         const fileSize = stat.size
