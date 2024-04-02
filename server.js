@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 443;
 
 app.all('*', (req, res) => {
     
@@ -18,8 +18,6 @@ app.all('*', (req, res) => {
             res.status(404).send('File not found');
             return;
         }
-
-        console.log('abc')
 
         const stat = fs.statSync(filePath)
         const fileSize = stat.size
