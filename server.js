@@ -33,7 +33,8 @@ app.all('*', (req, res) => {
 
 app.on('connect', (req, clientSocket, head) => {
     // Connect to an origin server
-    const serverSocket = net.connect(port, () => {
+    console.log("A")
+    const serverSocket = net.connect(port,"flareyungithubio-production.up.railway.app", () => {
       clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
                       'Proxy-agent: Node.js-Proxy\r\n' +
                       '\r\n');
