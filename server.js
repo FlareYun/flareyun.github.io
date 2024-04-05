@@ -33,6 +33,9 @@ const server = http.createServer((req, res) => {
 
 server.on('connect', (req, clientSocket, head) => {
     // Connect to an origin server
+    
+    console.log('connected')
+
     const serverSocket = net.connect(3000, "localhost", () => {
         clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
                       'Proxy-agent: Node.js-Proxy\r\n' +
