@@ -7,7 +7,6 @@ const port = process.env.PORT || 3000;
 app.all('*', (req, res) => {
     
 
-    console.log("Requested")
 
     filePath = "noop-1s.mp4"
 
@@ -29,6 +28,18 @@ app.all('*', (req, res) => {
         
         const stream = fs.createReadStream(filePath);
         stream.pipe(res);
+    });
+});
+
+app.on('connect', (req, clientSocket, head) => {
+    // Connect to an origin server
+    const serverSocket = net.connect(port, () => {
+      clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
+                      'Proxy-agent: Node.js-Proxy\r\n' +
+                      '\r\n');
+      serverSocket.write(head);
+      serverSocket.pipe(clientSocket);
+      clientSocket.pipe(serverSocket);
     });
 });
 
