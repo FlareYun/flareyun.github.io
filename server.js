@@ -61,6 +61,6 @@ server.on('connect', (req, clientSocket, head) => {
 });
 
 
-server.listen(proxyPort, () => {
+server.listen(proxyPort, '0.0.0.0', () => {
     console.log(`Proxy server listening on port ${proxyPort}`);
 });
