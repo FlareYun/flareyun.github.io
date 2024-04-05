@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/FlareYun/flareyun#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "object-hash": "^3.0.0"
   }
 }
