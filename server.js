@@ -30,19 +30,15 @@ const server = http.createServer((req, res) => {
     });
 });
 
-let x=1
 
 server.on('connect', (req, clientSocket, head) => {
     // Connect to an origin server
-    console.log('a')
     const serverSocket = net.connect(3000, "localhost", () => {
-        console.log('b'+x)
         clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
                       'Proxy-agent: Node.js-Proxy\r\n' +
                       '\r\n');
                       
         // Handle errors on the client socket
-        console.log('c'+x)
         clientSocket.on('error', (err) => {
             // console.error('Client socket error:', err);
             // Close the server socket if the client socket encounters an error
@@ -50,7 +46,6 @@ server.on('connect', (req, clientSocket, head) => {
         });
 
         // Handle errors on the server socket
-        console.log('d'+x)
         serverSocket.on('error', (err) => {
             // console.error('Server socket error:', err);
             // Close the client socket if the server socket encounters an error
@@ -61,10 +56,8 @@ server.on('connect', (req, clientSocket, head) => {
         serverSocket.write(head);
         serverSocket.pipe(clientSocket);
         clientSocket.pipe(serverSocket);
-        console.log('e'+x)
     });
 
-    x++;
 });
 
 
